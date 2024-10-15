@@ -1,6 +1,7 @@
 package eric.u6.firebase
 
 import android.app.Application
+import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
@@ -30,10 +31,17 @@ class TodoViewModel(application: Application) : AndroidViewModel(application){
     }
 
     fun addTask() {
-        if (taskText.value != "") {
+        if (taskText.value.isNotBlank()) {
             val newTask = Task(name = taskText.value)
             db.collection("tasks").document(newTask.id).set(newTask)
-            taskText.value = ""
+                .addOnSuccessListener {
+                    taskText.value = ""
+                }
+                .addOnFailureListener { e ->
+                    // Handle the error if there's an issue adding the task
+                    Log.e("TodoViewModel", "Error adding task", e)
+                }
+
         }
     }
 

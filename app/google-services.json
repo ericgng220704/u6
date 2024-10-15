@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "845809068065",
+    "project_id": "u6-mobile",
+    "storage_bucket": "u6-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845809068065:android:b9a156118fae87f5b31b60",
+        "android_client_info": {
+          "package_name": "eric.u6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvjWf3Tc6q-BbqaOLBxH8jmIxJsxnkqbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

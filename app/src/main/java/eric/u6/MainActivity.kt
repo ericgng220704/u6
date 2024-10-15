@@ -39,6 +39,7 @@ import eric.u6.firebase.Task
 import eric.u6.firebase.TodoViewModel
 import eric.u6.ui.theme.U6Theme
 import androidx.compose.foundation.lazy.items
+import com.google.firebase.FirebaseApp
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,6 +48,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel: TodoViewModel = ViewModelProvider(this).get(TodoViewModel::class.java)
+
+        FirebaseApp.initializeApp(this)
 
         setContent {
             Scaffold(
@@ -64,11 +67,11 @@ class MainActivity : ComponentActivity() {
                         Icon(Icons.Default.Add, contentDescription = "Add Task")
                     }
                 }
-            ) { paddingValues -> // Scaffold's content padding
+            ) { paddingValues ->
                 Column(
                     modifier = Modifier
-                        .padding(paddingValues) // Apply Scaffold's padding here
-                        .padding(16.dp) // Apply additional padding
+                        .padding(paddingValues)
+                        .padding(16.dp)
                         .fillMaxSize()
                 ) {
                     // Task Input
